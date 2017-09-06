@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+  <title>Shopping Cart | Mottaqi</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style media="screen">
+  .navbar {
+  	min-height: 130px;
+  	margin-bottom: 5px;
+ }
+  .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+  margin-top: 20%;
+  }
+    .basket-icon i {
+    color: #222;
+    font-size: 40px;
+    padding: 50% 25px 12px 0;
+  }
+  .col-md-4 img {
+    width: 100%;
+    max-height: 500px;
+  }
+  .zoom{
+    position: absolute;
+    top: 20px;
+    right: 80%;
+    width: 100px;
+    height: 80px;
+    border: 2px solid green;
+    opacity: 0;
+    animation: zoom-animation 2s ease forwards;
+  }
+  @keyframes zoom-animation{
+    0%{opacity: 0}
+    25%{opacity: 0.2}
+    50%{opacity: 1}
+    75%{opacity: 0.2}
+    100%{opacity: 0; right: 15%;}
+  }
+  </style>
+
+</head>
+<body class="basket">
+  <nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        MOTTAQI SHOP
+      </a>
+    </div>
+     <div class="basket-icon navbar-right">
+       <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+     </div>
+
+  </div><!-- /.container-fluid -->
+</nav>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 jumbotron text-center">
+        <img src="http://res.cloudinary.com/http-www-mottaqi-com/image/upload/v1504446284/_12643016_hcgubs.jpg">
+        <h2>Johnstons Trim Fit</h2>
+        <button class="btn btn-success">Add to Basket</button class="btn btn-success">
+      </div>
+      <div class="col-md-4 jumbotron text-center">
+        <img src="http://res.cloudinary.com/http-www-mottaqi-com/image/upload/v1504446284/_101005597_caapmh.jpg">
+        <h2>Genius 4 Trim Fit</h2>
+        <button class="btn btn-success">Add to Basket</button class="btn btn-success">
+      </div>
+      <div class="col-md-4 jumbotron text-center">
+        <img src="http://res.cloudinary.com/http-www-mottaqi-com/image/upload/v1504446284/_100974037_qw1t5r.jpg">
+        <h2>Huge 3 Trim Fit</h2>
+        <button class="btn btn-success">Add to Basket</button class="btn btn-success">
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="jumbotron">
+  <div class="container text-center">
+    <small>This example is created by <a href="http://www.mottaqi.com/">Mottaqi.</a></small>
+    <small>Want more resources, view <a href="http://www.mottaqi.com/resources/">resources</a></small>
+  </div>
+</footer>
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+  <script>
+        $(document).ready(function(){
+          $("button").on("click", function(){
+            $(this).closest(".col-md-4")
+            .css({"color": "green", "border": "2px solid green"})
+            .find("img")
+            .clone()
+            .addClass("zoom")
+            .appendTo("body");
+            setTimeout(function(){
+              $(".zoom").remove()
+              .css({"color": "red", "border": "2px solid green"})
+              alert("Your item has been added to cart")
+            }, 1500);
+
+          });
+        });
+  </script>
+</body>
